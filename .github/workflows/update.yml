@@ -1,8 +1,10 @@
 name: 楽天ROOM 自動更新
 
 on:
+  # 毎日 午前6時（JST = UTC 21時）に自動実行
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 21 * * *'
+  # 手動実行も可能
   workflow_dispatch:
 
 permissions:
@@ -11,15 +13,28 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - uses: browser-actions/setup-chrome@v1
-      - run: pip install selenium requests beautifulsoup4
-      - run: python scrape_room.py
-      - run: |
+
+      - name: Chrome と ChromeDriver をセットアップ
+        uses: browser-actions/setup-chrome@v1
+
+      - name: 依存パッケージをインストール
+        run: |
+          pip install selenium requests beautifulsoup4
+
+      - name: 楽天ROOMをスクレイピングして items.json を更新
+        run: python scrape_room.py
+
+      - name: 変更をコミット＆プッシュ
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add items.json
