@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゆたぽんのおすすめ — 日常のあったらいいな</title>
+  <meta name="description" content="ゆたぽんが実際に使って、調べて、これはいいと思ったものだけを紹介しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg: #fafaf8;
+      --color-surface: #ffffff;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #6b6b6b;
+      --color-text-muted: #a0a0a0;
+      --color-accent: #c8a96e;
+      --color-accent-light: #f5efe4;
+      --color-border: #e8e8e4;
+      --color-sold-out: #d4d4d0;
+      --font-sans: 'Noto Sans JP', sans-serif;
+      --font-serif: 'Noto Serif JP', serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-logo {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-text-primary);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .site-logo span {
+      color: var(--color-accent);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-nav a {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color var(--transition);
+    }
+
+    .header-nav a:hover {
+      color: var(--color-text-primary);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 24px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+      color: var(--color-text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+
+    .hero-text p {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-text-primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .hero-cta:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .hero-cta svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text-primary);
+      display: block;
+      line-height: 1;
+    }
+
+    .hero-stat .label {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .hero-grid-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+    }
+
+    .hero-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-grid-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .hero-grid-item:first-child {
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .section-meta {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== FILTER ===== */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .filter-btn {
+      padding: 6px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 100px;
+      background: transparent;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all var(--transition);
+      letter-spacing: 0.05em;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--color-text-primary);
+      border-color: var(--color-text-primary);
+      color: #fff;
+    }
+
+    /* ===== PRODUCT GRID ===== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .product-card.sold-out {
+      opacity: 0.65;
+    }
+
+    .product-image-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--color-bg);
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image-wrap img {
+      transform: scale(1.06);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--color-text-primary);
+      color: #fff;
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.06em;
+    }
+
+    .product-badge.sold-out-badge {
+      background: var(--color-sold-out);
+      color: var(--color-text-secondary);
+    }
+
+    .product-info {
+      padding: 16px 20px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-title {
+      font-size: 0.88rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-comment {
+      font-size: 0.78rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .product-price {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--color-text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .product-price.sold-out-price {
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+    }
+
+    .product-tags {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .product-tag {
+      font-size: 0.68rem;
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-room {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+      letter-spacing: 0.05em;
+    }
+
+    .btn-room:hover {
+      background: var(--color-text-primary);
+      border-color: var(--color-text-primary);
+      color: #fff;
+    }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(16px);
+      transition: transform var(--transition);
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0);
+    }
+
+    .modal-image {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--color-text-primary);
+      transition: background var(--transition);
+    }
+
+    .modal-close:hover {
+      background: #fff;
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      color: var(--color-text-primary);
+    }
+
+    .modal-comment {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      flex: 1;
+      white-space: pre-line;
+      margin-bottom: 20px;
+    }
+
+    .modal-price {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: 20px;
+    }
+
+    .modal-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .modal-tag {
+      font-size: 0.72rem;
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .modal-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--color-text-primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      transition: background var(--transition);
+    }
+
+    .modal-btn:hover {
+      background: #333;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--color-text-primary);
+      color: rgba(255,255,255,0.6);
+      padding: 48px 24px;
+      margin-top: 80px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-logo span {
+      color: var(--color-accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      font-size: 0.72rem;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ===== LOADING ===== */
+    .loading {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    .loading::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--color-border);
+      border-top-color: var(--color-accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 16px auto 0;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 20px 32px;
+        gap: 32px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-grid-item:first-child {
+        grid-row: auto;
+        aspect-ratio: 1;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .modal {
+        grid-template-columns: 1fr;
+        max-height: 95vh;
+      }
+
+      .modal-image {
+        aspect-ratio: 16/9;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+
+      .modal-body {
+        padding: 24px;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+      }
+
+      .section {
+        padding: 48px 20px;
+      }
+    }
+
+    /* ===== FADE IN ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== UPDATED BADGE ===== */
+    .updated-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .updated-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #4caf50;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="site-logo">ゆたぽんの<span>おすすめ</span></a>
+      <nav class="header-nav">
+        <a href="#items">商品一覧</a>
+        <a href="https://room.rakuten.co.jp/room_5a2045ed6a/items" target="_blank" rel="noopener">楽天ROOM</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>日常の<em>あったらいいな</em>、<br>集めました。</h1>
+      <p>使って、調べて、これはいいと思ったものだけを紹介しています。<br>暮らしが少しだけ豊かになるものを、一緒に見つけましょう。</p>
+      <a href="#items" class="hero-cta">
+        商品を見る
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-grid" id="heroGrid">
+        <!-- JSで挿入 -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ITEMS SECTION -->
+  <section class="section" id="items">
+    <div class="section-header">
+      <h2 class="section-title">おすすめアイテム</h2>
+      <div>
+        <span class="updated-badge" id="updatedAt">読み込み中…</span>
+      </div>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">すべて</button>
+    </div>
+
+    <div id="productGrid" class="product-grid">
+      <div class="loading">読み込み中</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ゆたぽんの<span>おすすめ</span></div>
+      <div class="footer-links">
+        <a href="https://room.rakuten.co.jp/room_5a2045ed6a/items" target="_blank" rel="noopener">楽天ROOMを見る</a>
+      </div>
+      <p class="footer-copy">© 2026 ゆたぽん. Powered by 楽天ROOM.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modal">
+      <div class="modal-image">
+        <img id="modalImg" src="" alt="">
+      </div>
+      <div class="modal-body">
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <p class="modal-comment" id="modalComment"></p>
+        <div class="modal-tags" id="modalTags"></div>
+        <p class="modal-price" id="modalPrice"></p>
+        <a href="#" class="modal-btn" id="modalBtn" target="_blank" rel="noopener">
+          楽天ROOMで見る
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ROOM_URL = 'https://room.rakuten.co.jp/room_5a2045ed6a/items';
+    let allItems = [];
+    let currentFilter = 'all';
+
+    // カテゴリマッピング（ハッシュタグから推定）
+    const CATEGORIES = {
+      'キッチン': ['キッチン', 'フライパン', '調理', 'スープ', 'コーヒー', 'ナッツ', '食品', '冷凍', 'お米', '牛めし', 'ドリップ'],
+      '健康・美容': ['健康', '美容', 'スキンケア', 'ケア', 'マッサージ', '足つぼ', 'EMS', '歯ブラシ', 'ビタミン', 'ヘッドスクラブ', 'エプソム', '入浴'],
+      '家電・ガジェット': ['家電', '掃除機', '電動', 'スマート', 'AI', 'ボイス', 'レコーダー', '照明', 'LED'],
+      '暮らし': ['暮らし', '収納', '洗濯', '部屋干し', 'インテリア', 'フレグランス', 'ディスペンサー', 'ウェットティッシュ', 'マスク', '水'],
+      'リラックス': ['リラックス', '睡眠', 'アイマスク', '温活', 'バスタイム', 'ストレッチ', '肩こり', '首こり'],
+    };
+
+    function detectCategory(item) {
+      const text = (item.comment + ' ' + item.hashTags.join(' ')).toLowerCase();
+      for (const [cat, keywords] of Object.entries(CATEGORIES)) {
+        if (keywords.some(k => text.includes(k.toLowerCase()))) {
+          return cat;
+        }
+      }
+      return 'その他';
+    }
+
+    async function loadItems() {
+      try {
+        const res = await fetch('items.json?t=' + Date.now());
+        const data = await res.json();
+        allItems = data.items.map(item => ({
+          ...item,
+          category: detectCategory(item)
+        }));
+
+        // 更新日時を表示
+        document.getElementById('updatedAt').textContent = data.updated_at + ' 更新';
+
+        // ヒーローグリッドを設定
+        setupHeroGrid();
+
+        // フィルターを設定
+        setupFilters();
+
+        // 商品を表示
+        renderProducts(allItems);
+
+      } catch (e) {
+        document.getElementById('productGrid').innerHTML = '<p style="color:#999;text-align:center;padding:40px">商品データの読み込みに失敗しました。</p>';
+        console.error(e);
+      }
+    }
+
+    function setupHeroGrid() {
+      const heroGrid = document.getElementById('heroGrid');
+      const picks = allItems.slice(0, 4);
+      heroGrid.innerHTML = picks.map((item, i) => `
+        <div class="hero-grid-item" onclick="openModal(${item.index})">
+          <img src="${item.imgSrc}" alt="${escapeHtml(item.title)}" loading="lazy">
+        </div>
+      `).join('');
+    }
+
+    function setupFilters() {
+      const categories = [...new Set(allItems.map(i => i.category))];
+      const filterBar = document.getElementById('filterBar');
+      filterBar.innerHTML = `<button class="filter-btn active" data-filter="all">すべて (${allItems.length})</button>` +
+        categories.map(cat => {
+          const count = allItems.filter(i => i.category === cat).length;
+          return `<button class="filter-btn" data-filter="${cat}">${cat} (${count})</button>`;
+        }).join('');
+
+      filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.filter;
+          const filtered = currentFilter === 'all' ? allItems : allItems.filter(i => i.category === currentFilter);
+          renderProducts(filtered);
+        });
+      });
+    }
+
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      if (items.length === 0) {
+        grid.innerHTML = '<p style="color:#999;text-align:center;padding:40px;grid-column:1/-1">該当する商品がありません。</p>';
+        return;
+      }
+
+      grid.innerHTML = items.map(item => {
+        const tags = item.hashTags.slice(0, 3).map(t =>
+          `<span class="product-tag">${escapeHtml(t)}</span>`
+        ).join('');
+
+        const badge = item.soldOut
+          ? `<span class="product-badge sold-out-badge">SOLD OUT</span>`
+          : '';
+
+        return `
+          <article class="product-card fade-in ${item.soldOut ? 'sold-out' : ''}" onclick="openModal(${item.index})">
+            <div class="product-image-wrap">
+              <img src="${item.imgSrc}" alt="${escapeHtml(item.title)}" loading="lazy">
+              ${badge}
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">${escapeHtml(item.title)}</h3>
+              <p class="product-comment">${escapeHtml(item.comment)}</p>
+              <div class="product-tags">${tags}</div>
+              <div class="product-footer">
+                <span class="product-price ${item.soldOut ? 'sold-out-price' : ''}">${escapeHtml(item.price)}</span>
+                <a href="${ROOM_URL}" class="btn-room" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                  ROOM
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      // フェードインアニメーション
+      requestAnimationFrame(() => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        grid.querySelectorAll('.fade-in').forEach((el, i) => {
+          el.style.transitionDelay = `${i * 0.04}s`;
+          observer.observe(el);
+        });
+      });
+    }
+
+    function openModal(index) {
+      const item = allItems.find(i => i.index === index);
+      if (!item) return;
+
+      document.getElementById('modalImg').src = item.imgSrcHD || item.imgSrc;
+      document.getElementById('modalImg').alt = item.title;
+      document.getElementById('modalTitle').textContent = item.title;
+      document.getElementById('modalComment').textContent = item.comment;
+      document.getElementById('modalPrice').textContent = item.soldOut ? '売り切れ' : item.price;
+      document.getElementById('modalBtn').href = ROOM_URL;
+
+      const tagsEl = document.getElementById('modalTags');
+      tagsEl.innerHTML = item.hashTags.map(t =>
+        `<span class="modal-tag">${escapeHtml(t)}</span>`
+      ).join('');
+
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      if (e.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('modalOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // 起動
+    loadItems();
+  </script>
+</body>
+</html>
