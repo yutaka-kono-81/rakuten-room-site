@@ -927,7 +927,7 @@
               <div class="product-tags">${tags}</div>
               <div class="product-footer">
                 <span class="product-price ${item.soldOut ? 'sold-out-price' : ''}">${escapeHtml(item.price)}</span>
-                <a href="${ROOM_URL}" class="btn-room" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <a href="${item.roomUrl || ROOM_URL}" class="btn-room" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                   ROOM
                 </a>
               </div>
@@ -963,7 +963,7 @@
       document.getElementById('modalTitle').textContent = item.title;
       document.getElementById('modalComment').textContent = item.comment;
       document.getElementById('modalPrice').textContent = item.soldOut ? '売り切れ' : item.price;
-      document.getElementById('modalBtn').href = ROOM_URL;
+      document.getElementById('modalBtn').href = item.roomUrl || ROOM_URL;
 
       const tagsEl = document.getElementById('modalTags');
       tagsEl.innerHTML = item.hashTags.map(t =>
